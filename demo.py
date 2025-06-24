@@ -8,7 +8,7 @@ import xgboost
 from functions import get_number_of_days_stayed, preprocessing
 
 # Load model and scaler
-model = joblib.load("xgb_model.pkl")
+model = joblib.load("pickle_files/xgb_model.pkl")
 
 st.title("Hotel Cancellation Prediction App")
 

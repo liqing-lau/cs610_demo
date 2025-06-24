@@ -58,7 +58,7 @@ def preprocessing(dic):
     df = df.drop(columns = ['previous_cancellations', 'previous_bookings_not_canceled', 'lead_time'])
     df = df.drop(columns = ['arrival_date_year', 'arrival_date_month'])
 
-    jse = joblib.load("jse.pkl")
+    jse = joblib.load("pickle_files/jse.pkl")
     df['country_encoded'] = jse.transform(df[['country']])
     df = df.drop(columns=['country']).reset_index(drop=True)
 
@@ -74,7 +74,7 @@ def preprocessing(dic):
                         'customer_type',
                         'season']
     
-    encoder = joblib.load("onehot.pkl")
+    encoder = joblib.load("pickle_files/onehot.pkl")
     df_encoded = pd.DataFrame(
         encoder.transform(df[categorical_cols]),
         columns=encoder.get_feature_names_out(categorical_cols),
@@ -83,6 +83,6 @@ def preprocessing(dic):
 
     df = pd.concat([df.drop(categorical_cols, axis=1), df_encoded], axis=1)
 
-    scaler = joblib.load("scaler.pkl")
+    scaler = joblib.load("pickle_files/scaler.pkl")
     df = scaler.transform(df)
     return df
