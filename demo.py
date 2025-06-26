@@ -98,8 +98,8 @@ if st.button("Predict"):
 
     if prediction[0]: 
         probability = prediction_probability[0][1] * 100
-        st.success(f"Prediction: Customer will cancel with a probabilty of {probability:.2f}%")
+        st.error(f"Probability of cancellation: {probability:.2f}%")
     else: 
         probability = prediction_probability[0][0] * 100
-        st.success(f"Prediction: Customer will not cancel with a probabilty of {probability:.2f}%")
+        st.success(f"Probability of no cancellation: {probability:.2f}%")
 
