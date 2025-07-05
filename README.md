@@ -5,3 +5,4 @@ To install the requirements to run streamlit:
 
 To start the streamlit demo: 
 ``` streamlit run demo/demo.py ```
+alternatively, can visit: https://cs610-grp4-demo.streamlit.app/
